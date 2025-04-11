@@ -1,0 +1,335 @@
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial Rounded MT Bold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #e9f5db;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.game-container {
+    position: relative;
+    width: 900px;
+    height: 600px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Screens */
+.screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(137, 207, 140, 0.85);
+    color: #1b512d;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Start Screen */
+#start-screen h1 {
+    font-size: 64px;
+    margin-bottom: 20px;
+    color: #1b512d;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite;
+}
+
+#start-screen p {
+    font-size: 22px;
+    margin-bottom: 30px;
+    max-width: 80%;
+}
+
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    background-color: #3e8e41;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.instructions {
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+.instructions h2 {
+    margin-bottom: 10px;
+    color: #1b512d;
+}
+
+.instructions ul {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.instructions li {
+    margin: 8px 0;
+}
+
+/* Game Screen */
+#game-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #87CEEB;
+}
+
+.hud {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    gap: 20px;
+    z-index: 10;
+}
+
+.score-container {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 5px 15px;
+    border-radius: 20px;
+    position: relative;
+}
+
+.score-img {
+    height: 30px;
+    margin-right: 10px;
+}
+
+#score {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.timer-container {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #1b512d;
+}
+
+/* Mobile Controls */
+.controls {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    z-index: 10;
+}
+
+.control-btn {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    display: none; /* Hide by default, show on mobile */
+}
+
+/* Game Over Screen */
+#game-over-screen h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    color: #1b512d;
+}
+
+.stats {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.eco-facts {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    max-width: 80%;
+}
+
+.eco-facts h2 {
+    margin-bottom: 10px;
+    color: #1b512d;
+}
+
+/* Pause Menu */
+#pause-menu {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+}
+
+#pause-menu h2 {
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+/* Win Screen */
+#win-screen {
+    background-color: rgba(137, 207, 140, 0.85); /* Sama dengan screen lainnya */
+    color: #1b512d;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+#win-screen h1 {
+    font-size: 64px;
+    margin-bottom: 20px;
+    color: #1b512d;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite;
+}
+
+#win-screen p {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+#win-screen .stats {
+    background: linear-gradient(to bottom, #4CAF50, #3e8e41);
+    padding: 25px;
+    border-radius: 15px;
+    margin: 30px auto;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: 3px solid #ffffff;
+}
+
+#win-screen .stats p {
+    color: #ffffff;
+    font-size: 28px;
+    margin: 10px 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+#win-screen .stats #win-score {
+    font-weight: bold;
+    font-size: 32px;
+    color: #ffeb3b;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    animation: scoreGlow 2s infinite;
+}
+
+@keyframes scoreGlow {
+    0% { text-shadow: 0 0 5px #ffeb3b; }
+    50% { text-shadow: 0 0 20px #ffeb3b; }
+    100% { text-shadow: 0 0 5px #ffeb3b; }
+}
+
+/* Tambahkan icon untuk stats */
+#win-screen .stats p::before {
+    content: "🏆";
+    margin-right: 10px;
+    font-size: 32px;
+}
+
+/* Styling untuk tombol di win screen */
+#win-screen .btn-container {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+#win-screen .btn {
+    min-width: 180px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    padding: 15px 30px;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive Design */
+@media (max-width: 920px) {
+    .game-container {
+        width: 95%;
+        height: 80vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .control-btn {
+        display: block;
+    }
+    
+    #start-screen h1 {
+        font-size: 48px;
+    }
+    
+    .instructions {
+        max-width: 90%;
+    }
+}
+
+@media (max-height: 600px) {
+    .game-container {
+        height: 95vh;
+    }
+}
