@@ -328,6 +328,163 @@ body {
     }
 }
 
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    /* Game controls */
+    .controls {
+        position: fixed;
+        bottom: 20px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+        padding: 0 20px;
+        z-index: 100;
+    }
+
+    .control-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70px;
+        height: 70px;
+        background: rgba(76, 175, 80, 0.8);
+        border: 3px solid #ffffff;
+        border-radius: 50%;
+        font-size: 28px;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        touch-action: manipulation;
+    }
+
+    .control-btn:active {
+        transform: scale(0.95);
+        background: rgba(62, 142, 65, 0.9);
+    }
+
+    #jump-btn {
+        grid-column: 3;
+        width: 80px;
+        height: 80px;
+        font-size: 20px;
+        background: rgba(255, 193, 7, 0.8);
+    }
+
+    /* HUD adjustments for mobile */
+    .hud {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px;
+    }
+
+    .score-container, .timer-container {
+        background: rgba(76, 175, 80, 0.9);
+        padding: 8px 15px;
+        border-radius: 25px;
+        border: 2px solid #ffffff;
+    }
+
+    /* Mobile menu adjustments */
+    .screen {
+        padding: 15px;
+    }
+
+    #start-screen h1 {
+        font-size: 40px;
+    }
+
+    .instructions {
+        font-size: 16px;
+        padding: 15px;
+    }
+
+    .btn {
+        padding: 15px 30px;
+        font-size: 18px;
+        min-width: 200px;
+        margin: 8px;
+    }
+
+    /* Game over and win screen adjustments */
+    #game-over-screen h1,
+    #win-screen h1 {
+        font-size: 36px;
+    }
+
+    .stats {
+        width: 90%;
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    .eco-facts {
+        width: 90%;
+        font-size: 16px;
+    }
+
+    /* Portrait mode optimization */
+    @media (orientation: portrait) {
+        .game-container {
+            height: 100vh;
+            width: 100%;
+            border-radius: 0;
+        }
+
+        .controls {
+            bottom: 30px;
+        }
+    }
+
+    /* Landscape mode optimization */
+    @media (orientation: landscape) {
+        .game-container {
+            height: 100vh;
+            width: 100%;
+            border-radius: 0;
+        }
+
+        .controls {
+            bottom: 10px;
+        }
+
+        .control-btn {
+            width: 60px;
+            height: 60px;
+        }
+
+        #jump-btn {
+            width: 70px;
+            height: 70px;
+        }
+    }
+
+    /* Safe area handling for notched devices */
+    @supports (padding: max(0px)) {
+        .controls {
+            padding-bottom: max(20px, env(safe-area-inset-bottom));
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+        }
+    }
+}
+
+/* Touch target size optimization */
+@media (hover: none) and (pointer: coarse) {
+    .btn {
+        min-height: 44px;
+        padding: 12px 24px;
+    }
+
+    .control-btn {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
 @media (max-height: 600px) {
     .game-container {
         height: 95vh;
